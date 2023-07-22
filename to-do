@@ -1,4 +1,2 @@
-1- create clone_printf.c (mouad/%c and %s) (marouane/ %% and done the betty style and betty doc) / DONE !
-2- create main.c to compile
-
+1- MOUAD creats all_func.c content(void print_char(va_list args); void print_str(va_list args); void print_perc(va_list args) .
 
