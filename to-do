@@ -1,2 +1,4 @@
 1- MOUAD creats all_func.c content(void print_char(va_list args); void print_str(va_list args); void print_perc(va_list args) .
-
+2- MAROUANE create header file : contain : 6 libiraries 
+                                           1 prototype
+                                           1 struct
