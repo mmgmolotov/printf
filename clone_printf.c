@@ -3,7 +3,6 @@
  * _printf - function that print all
  * @format: from it the function get the format
  * Return: input given
- *
  */
 int _printf(const char *format, ...)
 {
