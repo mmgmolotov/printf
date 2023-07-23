@@ -7,34 +7,48 @@
  */
 int _printf(const char *format, ...)
 {
-	char *str;
-	int counter;
+	FH def[] = {
+		{'s', print_str},
+		{'c', print_char},
+		{'%', print_perc},
+		{'\0', NULL},
+	};
+	
 	va_list args;
+	int counter, i;
 
-	counter = 0;
 	va_start(args, format);
-
-	while (*format)
+	counter = 0;
+	while (*format != '\0')
+	{
 		if (*format == '%')
+		{
 			format++;
-			if (*format == 's')
-				str = (va_arg(args, char *);
-				while (*str)
-					putchar(str++);
+			i = 0;
+			while (def[i].spc != '\0')
+			{
+				if (*format == def[i].spc)
+				{
+					def[i].hndl(args);
 					counter++;
-			else if (*format == 'c')
-				putchar(va_arg(args, int);
-				counter++;
-			else if (*format == '%')
+					break;
+				}
+				i++;
+			}
+			if (def[i].spc == '\0')
+			{
 				putchar('%');
-				counter++;
-			else
 				putchar(*format);
-				counter++;
+				counter += 2;
+			}
+		}
 		else
+		{
 			putchar(*format);
-			count++;
+			counter++;
+		}
 		format++;
+	}
 	va_end(args);
 	return (counter);
 }
