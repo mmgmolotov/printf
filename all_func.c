@@ -8,6 +8,7 @@
 void print_str(va_list args)
 {
 	char *str = va_arg(args, char *);
+
 	while (*str)
 	{
 		putchar(*str++);
@@ -22,6 +23,7 @@ void print_str(va_list args)
 void print_char(va_list args)
 {
 	char _char = va_arg(args, int);
+
 	putchar(_char);
 }
 
@@ -33,5 +35,6 @@ void print_char(va_list args)
 void print_perc(va_list args)
 {
 	char _perc = va_arg(args, int);
+
 	putchar(_perc);
 }
