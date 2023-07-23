@@ -10,14 +10,22 @@ int _printf(const char *format, ...)
 		{'%', print_perc}, {'\0', NULL} };
 	va_list args;
 	int counter, i;
+	char c;
 
 	va_start(args, format);
 	counter = 0;
-	while (*format != '\0')
+	while (c == *format++)
 	{
-		if (*format == '%')
+		if (c == '%')
 		{
-			format++;
+			c = *format++;
+			if (c == '%')
+			{
+				putchar('%');
+				counter++;
+			}
+			else
+			{
 			i = 0;
 			while (def[i].spc != '\0')
 			{
@@ -35,13 +43,14 @@ int _printf(const char *format, ...)
 				putchar(*format);
 				counter += 2;
 			}
-		}
+			}
 		else
 		{
 			putchar(*format);
 			counter++;
 		}
 		format++;
+		}
 	}
 	va_end(args);
 	return (counter);
