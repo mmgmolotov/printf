@@ -3,17 +3,11 @@
  * _printf - function that print all
  * @format: from it the function get the format
  * Return: input given
- *
  */
 int _printf(const char *format, ...)
 {
-	FH def[] = {
-		{'s', print_str},
-		{'c', print_char},
-		{'%', print_perc},
-		{'\0', NULL},
-	};
-	
+	FH def[] = { {'s', print_str}, {'c', print_char},
+		{'%', print_perc}, {'\0', NULL} };
 	va_list args;
 	int counter, i;
 
