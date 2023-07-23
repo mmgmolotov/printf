@@ -8,23 +8,17 @@
 int _printf(const char *format, ...)
 {
 	FH def[] = {
-		{'s', print_str},
-		{'c', print_char},
-		{'%', print_perc},
-		{'\0', NULL},
+		{'s', print_str}, {'c', print_char}, {'%', print_perc}, {'\0', NULL},
 	};
-	
 	va_list args;
-	int counter, i;
+	int counter = 0, i = 0;
 
 	va_start(args, format);
-	counter = 0;
 	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
 			format++;
-			i = 0;
 			while (def[i].spc != '\0')
 			{
 				if (*format == def[i].spc)
