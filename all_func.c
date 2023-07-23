@@ -5,7 +5,7 @@
  *
  * @args: the va_ list content
 */
-void print_string(va_list args)
+void print_str(va_list args)
 {
 	char *str = va_arg(args, char *);
 	while (*str)
