@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	FH def[] = {
-		{'s', print_str}, {'c', print_char}, {'%', print_perc}, {'\0', NULL},
+		{'s', print_str}, {'c', print_char}, {'\0', NULL},
 	};
 	va_list args;
 	int counter = 0, i = 0;
@@ -37,7 +37,6 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			i = 0;
 			putchar(*format);
 			counter++;
 		}

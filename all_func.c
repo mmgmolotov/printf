@@ -25,14 +25,4 @@ void print_char(va_list args)
 
 	putchar(_char);
 }
-/**
- * print_perc - function prints percent
- *
- * @args: the va_list content
-*/
-void print_perc(va_list args)
-{
-	char _perc = va_arg(args, int);
 
-	putchar(_perc);
-}
