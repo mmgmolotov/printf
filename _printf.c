@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	counter = 0;
-	while (c == *format++)
+	while ((c == *format++))
 	{
 		if (c == '%')
 		{
@@ -26,31 +26,31 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-			i = 0;
-			while (def[i].spc != '\0')
-			{
-				if (*format == def[i].spc)
+				i = 0;
+				while (def[i].spc != '\0')
 				{
-					def[i].hndl(args);
-					counter++;
-					break;
+					if (*format == def[i].spc)
+					{
+						def[i].hndl(args);
+						counter++;
+						break;
+					}
+					i++;
 				}
-				i++;
+				if (def[i].spc == '\0')
+				{
+					putchar('%');
+					putchar(*format);
+					counter += 2;
+				}
 			}
-			if (def[i].spc == '\0')
-			{
-				putchar('%');
-				putchar(*format);
-				counter += 2;
-			}
-			}
+		}	
 		else
 		{
 			putchar(*format);
 			counter++;
 		}
-		format++;
-		}
+		
 	}
 	va_end(args);
 	return (counter);
