@@ -14,7 +14,6 @@ void print_str(va_list args)
 		putchar(*str++);
 	}
 }
-
 /**
  * print_char - function prints a char
  *
@@ -26,7 +25,6 @@ void print_char(va_list args)
 
 	putchar(_char);
 }
-
 /**
  * print_perc - function prints percent
  *
