@@ -12,14 +12,15 @@ int _printf(const char *format, ...);
 void print_str(va_list args);
 void print_char(va_list args);
 void print_perc(va_list args);
-
 /**
- * struct - for handling format
+ * struct fh - for handling format
  * @spc: format specifier
  * @hndl: handler
+ * description: this struct for handling format
  */
 
-typedef struct {
+typedef struct fh
+{
 	char spc;
 	void (*hndl)(va_list);
 } FH;

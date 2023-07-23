@@ -7,13 +7,14 @@
 */
 void print_str(va_list args)
 {
-	char *str = va_arg(args, char *);
+	char *str;
+
+	*str = va_arg(args, char *);
 	while (*str)
 	{
 		putchar(*str++);
 	}
 }
-
 /**
  * print_char - function prints a char
  *
@@ -21,10 +22,11 @@ void print_str(va_list args)
 */
 void print_char(va_list args)
 {
-	char _char = va_arg(args, int);
+	char _char;
+
+	_char = va_arg(args, int);
 	putchar(_char);
 }
-
 /**
  * print_perc - function prints percent
  *
@@ -32,6 +34,8 @@ void print_char(va_list args)
 */
 void print_perc(va_list args)
 {
-	char _perc = va_arg(args, int);
+	char _perc;
+
+	_perc = va_arg(args, int);
 	putchar(_perc);
 }
