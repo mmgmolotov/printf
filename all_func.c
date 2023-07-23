@@ -8,6 +8,7 @@
 void print_str(va_list args)
 {
 	char *str = va_arg(args, char *);
+
 	while (*str)
 	{
 		putchar(*str++);
