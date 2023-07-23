@@ -15,7 +15,7 @@ void print_perc(va_list args);
 
 typedef struct {
 	char spc;
-	void (*hnd)(va_list);
+	void (*hndl)(va_list);
 } FH;
 
 #endif
