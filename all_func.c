@@ -5,24 +5,29 @@
  *
  * @args: the va_ list content
 */
-void print_str(va_list args)
+int print_str(va_list args)
 {
+	int len = 0;
 	char *str = va_arg(args, char *);
 
+	if(!str)
+		str = "(nil)";
 	while (*str)
 	{
 		putchar(*str++);
+		len++;
 	}
+	return (len);
 }
 /**
  * print_char - function prints a char
  *
  * @args: the va_list content
 */
-void print_char(va_list args)
+int print_char(va_list args)
 {
 	char _char = va_arg(args, int);
 
-	putchar(_char);
+	return (_char);
 }
 

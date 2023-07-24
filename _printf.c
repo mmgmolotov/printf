@@ -6,11 +6,8 @@
  */
 int _printf(const char *format, ...)
 {
-	FH def[] = {
-		{'s', print_str}, {'c', print_char}, {'\0', NULL},
-	};
 	va_list args;
-	int counter = 0, i = 0;
+	int counter = 0;
 
 	va_start(args, format);
 	while (*format != '\0')
@@ -18,22 +15,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			while (def[i].spc != '\0')
-			{
-				if (*format == def[i].spc)
-				{
-					def[i].hndl(args);
-					counter++;
-					break;
-				}
-				i++;
-			}
-			if (def[i].spc == '\0')
-			{
-				putchar('%');
-				putchar(*format);
-				counter += 2;
-			}
+			counter += check_format(&format, args);
 		}
 		else
 		{
@@ -44,4 +26,29 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	return (counter);
+}
+int check_format (const char **format, va_list args)
+{
+	int i = 0, prt = 0 , add = 0;
+
+	FH def[] = {
+		{'s', print_str}, {'c', print_char}, {'%', print_char}, {'\0', NULL},
+	};
+	while (def[i].spc)
+	{
+		if (**format == def[i].spc)
+		{
+			prt += def[i].hndl(args);
+			add++;
+			break;
+		}
+		i++;
+	}
+	if (def[i].spc == '\0')
+	{
+		putchar('%');
+		putchar(**format);
+		prt += 2;
+	}
+	return (prt);
 }
