@@ -31,6 +31,7 @@ int print_char(va_list args)
 	putchar(_char);
 	return (1);
 }
+
 /**
  * print_perc - function prints percent
  *
@@ -39,8 +40,7 @@ int print_char(va_list args)
 */
 int print_perc(va_list args)
 {
-	char _char = va_arg(args, int);
-
-	putchar(_char + '0');
+	(void)args;
+	putchar('%');
 	return (1);
 }
