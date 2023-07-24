@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
  * check_format - check the format conditions
  *
  * @format: argument
- * @va_list: list of args
+ * @args: list of args
  *
  * Return: the prt value
 */

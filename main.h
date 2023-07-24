@@ -7,11 +7,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
-
+/*Only functions prototype here*/
+int check_format(const char **format, va_list args);
 int _printf(const char *format, ...);
-void print_str(va_list args);
-void print_char(va_list args);
-void print_perc(va_list args);
+int print_str(va_list args);
+int print_char(va_list args);
+int print_perc(va_list args);
 /**
  * struct fh - for handling format
  * @spc: format specifier
@@ -22,7 +23,7 @@ void print_perc(va_list args);
 typedef struct fh
 {
 	char spc;
-	void (*hndl)(va_list);
+	int (*hndl)(va_list);
 } FH;
 
 #endif
