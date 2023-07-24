@@ -27,9 +27,18 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (counter);
 }
-int check_format (const char **format, va_list args)
+
+/**
+ * check_format - check the format conditions
+ *
+ * @format: argument
+ * @va_list: list of args
+ *
+ * Return: the prt value
+*/
+int check_format(const char **format, va_list args)
 {
-	int i = 0, prt = 0 , add = 0;
+	int i = 0, prt = 0, add = 0;
 
 	FH def[] = {
 		{'s', print_str}, {'c', print_char}, {'%', print_char}, {'\0', NULL},
