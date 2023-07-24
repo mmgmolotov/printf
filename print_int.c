@@ -7,17 +7,17 @@
  */
 int print_int(int n)
 {
-	int num, count, div, digit, temp;
+	int i, num, count, div, digit, temp;
 
 	count = 0;
 	digit = 0;
 	div = 1;
-
+	num = n;
 	if (num < 0)
 	{
 		putchar('-');
 		count++;
-		num = -n;
+		num = -num;
 	}
 	else
 	{
