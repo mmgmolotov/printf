@@ -13,6 +13,10 @@ int _printf(const char *format, ...);
 int print_str(va_list args);
 int print_char(va_list args);
 int print_perc(va_list args);
+int print_decimal(va_list args);
+int print_int(int n);
+
+
 /**
  * struct fh - for handling format
  * @spc: format specifier
