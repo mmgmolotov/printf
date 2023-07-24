@@ -41,7 +41,7 @@ int check_format(const char **format, va_list args)
 	int i = 0, prt = 0, add = 0;
 
 	FH def[] = {
-		{'s', print_str}, {'c', print_char}, {'%', print_char}, {'\0', NULL},
+		{'s', print_str}, {'c', print_char}, {'%', print_perc}, {'\0', NULL},
 	};
 	while (def[i].spc)
 	{

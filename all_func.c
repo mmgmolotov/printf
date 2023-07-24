@@ -34,4 +34,17 @@ int print_char(va_list args)
 
 	return (_char);
 }
+/**
+ * print_perc - function prints percent
+ *
+ * @va_list: args
+ * 
+ * Return: value of char
+*/
+int print_perc(va_list args)
+{
+	char _char = va_arg(args, int);
+	putchar(_char);
+	return (1);
+}
 
