@@ -53,7 +53,7 @@ int check_format(const char **format, va_list args)
 		}
 		i++;
 	}
-	if (def[i].spc == '\0')
+	if (!add)
 	{
 		putchar('%');
 		putchar(**format);
