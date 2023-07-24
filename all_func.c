@@ -2,9 +2,7 @@
 
 /**
  * print_str - function prints a string
- *
- * @args: the va_ list content
- *
+ * @args: the  content
  * Return: length of string
 */
 int print_str(va_list args)
@@ -23,9 +21,7 @@ int print_str(va_list args)
 }
 /**
  * print_char - function prints a char
- *
- * @args: the va_list content
- *
+ * @args: the content
  * Return: my char
 */
 int print_char(va_list args)
@@ -38,7 +34,6 @@ int print_char(va_list args)
  * print_perc - function prints percent
  *
  * @args: argument
- *
  * Return: value of char
 */
 int print_perc(va_list args)
@@ -48,4 +43,3 @@ int print_perc(va_list args)
 	putchar(_char);
 	return (1);
 }
-
