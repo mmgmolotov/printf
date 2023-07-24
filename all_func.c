@@ -13,7 +13,7 @@ int print_str(va_list args)
 	char *str = va_arg(args, char *);
 
 	if (!str)
-		str = "(nil)";
+		str = "(null)";
 	while (*str)
 	{
 		putchar(*str++);
@@ -37,13 +37,14 @@ int print_char(va_list args)
 /**
  * print_perc - function prints percent
  *
- * @va_list: args
- * 
+ * @args: argument
+ *
  * Return: value of char
 */
 int print_perc(va_list args)
 {
 	char _char = va_arg(args, int);
+
 	putchar(_char);
 	return (1);
 }
