@@ -7,30 +7,42 @@
  */
 int print_int(int n)
 {
-	int i, num, count, div, digit, temp;
+	unsigned int num;
+	int temp, div, digit;
+	int count;
+	int neg;
+	int i;
 
 	count = 0;
-	digit = 0;
 	div = 1;
-	num = n;
+	digit = 0;
+	neg = 0;
 
-	if (num < 0)
+	if (n < 0)
 	{
-		putchar('-');
-		putchar(n);
+		neg = 1;
+		num = -n;
+		count++;
 	}
 	else
 	{
 		num = n;
-		temp = num;
-		while (temp != 0)
-		{
-			temp /= 10;
-			digit++;
-		}
 	}
+	temp = num;
+	do
+	{
+		temp /= 10;
+		digit++;
+	}
+	while (temp != 0);
 	for (i = 1; i < digit; i++)
+	{
 		div *= 10;
+	}
+	if (neg)
+	{
+		putchar('-');
+	}
 	while (div != 0)
 	{
 		digit = num / div;
@@ -40,6 +52,7 @@ int print_int(int n)
 		count++;
 	}
 	return (count);
+
 }
 /**
  * print_decimal - print decimal num
