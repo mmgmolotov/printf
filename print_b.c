@@ -38,7 +38,7 @@ int print_unsigned(va_list args)
 {
 	unsigned int num;
 	int count, i, j, di[10];
-	
+
 	num = va_arg(args, unsigned int);
 	count = 0;
 
@@ -56,7 +56,6 @@ int print_unsigned(va_list args)
 			num /= 10;
 			i++;
 		}
-	
 		for (j = i - 1; j >= 0; j--)
 		{
 			putchar(di[j] + '0');
