@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_int
+ * print_int - print integer
  * @n: integer arg
  *
  * Return: the number of characters printed
@@ -13,17 +13,11 @@ int print_int(int n)
 	digit = 0;
 	div = 1;
 	num = n;
-	if (n == INT_MIN)
-	{
-		putchar('-');
-		putchar('2');
-		return (print_int(147483648));
-	}
 	if (num < 0)
 	{
 		putchar('-');
 		count++;
-		num = -num;
+		num = -n;
 	}
 	else
 	{
