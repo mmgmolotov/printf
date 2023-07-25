@@ -37,7 +37,7 @@ int print_binary(va_list args)
 int print_unsigned(va_list args)
 {
 	unsigned int num;
-	int count, digit, i, j, digit[10];
+	int count, i, j, di[10];
 	
 	num = va_arg(args, unsigned int);
 	count = 0;
@@ -52,13 +52,13 @@ int print_unsigned(va_list args)
 		i = 0;
 		while (num != 0)
 		{
-			digit[i] = num % 10;
+			di[i] = num % 10;
 			num /= 10;
 			i++;
 		}
 	for (j = i - 1; j >= 0; j--)
 	{
-		putchar(digits[j] + '0');
+		putchar(di[j] + '0');
 		count++;
 	}
 }
