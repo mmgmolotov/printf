@@ -64,3 +64,38 @@ int print_unsigned(va_list args)
 	}
 	return (count);
 }
+/**
+ * print_octal - func that print an octal
+ * @args: arg
+ *
+ * Return: numo of characters printed
+ */
+int print_octal(va_list args)
+{
+	unsigned int num;
+	int count, i, j, o[100];
+
+	count = 0;
+	num = va_arg(args, unsigned int);
+	if (num == 0)
+	{
+		putchar('0');
+		count++;
+	}
+	else
+	{
+		i = 0;
+		while (num != 0)
+		{
+			o[i] = num % 8;
+			num /= 8;
+			i++;
+		}
+		for (j = i - 1; j >= 0; j--)
+		{
+			putchar(o[j] + '0');
+			count++;
+		}
+	}
+	return (count);
+}

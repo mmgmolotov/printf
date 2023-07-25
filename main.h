@@ -17,6 +17,7 @@ int print_decimal(va_list args);
 int print_int(int n);
 int print_binary(va_list args);
 int print_unsigned(va_list args);
+int print_octal(va_list args);
 
 
 /**
