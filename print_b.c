@@ -99,3 +99,39 @@ int print_octal(va_list args)
 	}
 	return (count);
 }
+/**
+ * print_x - func that hex lowercase
+ * @args: arg
+ *
+ * Return: num of char printed
+ */
+int print_x(va_list args)
+{
+	unsigned int num;
+	int count, i, j, x[100];
+	char x_di[] = "0123456789abcdef";
+
+	count = 0;
+	num = va_arg(args, unsigned int);
+	if (num == 0)
+	{
+		putchar('0');
+		count++;
+	}
+	else
+	{
+		i = 0;
+		while (num != 0)
+		{
+			x[i] = x_di[num % 16];
+			num /= 16;
+			i++;
+		}
+		for (j = i - 1; j >= 0; j--)
+		{
+			putchar(x[j]);
+			count++;
+		}
+	}
+	return (count);
+}
