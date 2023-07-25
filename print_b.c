@@ -56,9 +56,12 @@ int print_unsigned(va_list args)
 			num /= 10;
 			i++;
 		}
-	for (j = i - 1; j >= 0; j--)
-	{
-		putchar(di[j] + '0');
-		count++;
+	
+		for (j = i - 1; j >= 0; j--)
+		{
+			putchar(di[j] + '0');
+			count++;
+		}
 	}
+	return (count);
 }
