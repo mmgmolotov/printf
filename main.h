@@ -20,6 +20,8 @@ int print_unsigned(va_list args);
 int print_octal(va_list args);
 int oct_checks(int m);
 int print_rev(va_list args);
+int print_x(va_list args);
+int print_X(va_list args);
 
 
 /**

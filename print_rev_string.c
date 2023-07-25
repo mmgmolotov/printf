@@ -26,10 +26,10 @@ int print_rev(va_list args)
 		str++;
 		len++;
 	}
-	for (i = 0; i < len; i++)
+	for (i = 0; i <= len; i++)
 		temp_str[i] = str[i];
 	temp_str[i] = '\0';
-	for (i = 0; i < len / 2;i++)
+	for (i = 0; i < len / 2; i++)
 	{
 		temp = temp_str[i];
 		temp_str[i] = temp_str[len - i - 1];

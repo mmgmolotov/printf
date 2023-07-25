@@ -38,7 +38,7 @@ int print_unsigned(va_list args)
 {
 	unsigned int num;
 	int count, i, j, di[10];
-	
+
 	num = va_arg(args, unsigned int);
 	count = 0;
 
@@ -56,10 +56,116 @@ int print_unsigned(va_list args)
 			num /= 10;
 			i++;
 		}
-	
 		for (j = i - 1; j >= 0; j--)
 		{
 			putchar(di[j] + '0');
+			count++;
+		}
+	}
+	return (count);
+}
+/**
+ * print_octal - func that print an octal
+ * @args: arg
+ *
+ * Return: numo of characters printed
+ */
+int print_octal(va_list args)
+{
+	unsigned int num;
+	int count, i, j, o[100];
+
+	count = 0;
+	num = va_arg(args, unsigned int);
+	if (num == 0)
+	{
+		putchar('0');
+		count++;
+	}
+	else
+	{
+		i = 0;
+		while (num != 0)
+		{
+			o[i] = num % 8;
+			num /= 8;
+			i++;
+		}
+		for (j = i - 1; j >= 0; j--)
+		{
+			putchar(o[j] + '0');
+			count++;
+		}
+	}
+	return (count);
+}
+/**
+ * print_x - func that hex lowercase
+ * @args: arg
+ *
+ * Return: num of char printed
+ */
+int print_x(va_list args)
+{
+	unsigned int num;
+	int count, i, j, x[100];
+	char x_di[] = "0123456789abcdef";
+
+	count = 0;
+	num = va_arg(args, unsigned int);
+	if (num == 0)
+	{
+		putchar('0');
+		count++;
+	}
+	else
+	{
+		i = 0;
+		while (num != 0)
+		{
+			x[i] = x_di[num % 16];
+			num /= 16;
+			i++;
+		}
+		for (j = i - 1; j >= 0; j--)
+		{
+			putchar(x[j]);
+			count++;
+		}
+	}
+	return (count);
+}
+/**
+ * print_X - func that print hex uppercase
+ * @args: arg
+ *
+ * Return: num of char printed
+ */
+int print_X(va_list args)
+{
+	unsigned int num;
+	int count, i, j, X[100];
+	char X_di[] = "0123456789ABCDEF";
+
+	count = 0;
+	num = va_arg(args, unsigned int);
+	if (num == 0)
+	{
+		putchar('0');
+		count++;
+	}
+	else
+	{
+		i = 0;
+		while (num != 0)
+		{
+			X[i] = X_di[num % 16];
+			num /= 16;
+			i++;
+		}
+		for (j = i - 1; j >= 0; j--)
+		{
+			putchar(X[j]);
 			count++;
 		}
 	}
