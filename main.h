@@ -19,6 +19,7 @@ int print_binary(va_list args);
 int print_unsigned(va_list args);
 int print_octal(va_list args);
 int print_x(va_list args);
+int print_X(va_list args);
 
 
 /**

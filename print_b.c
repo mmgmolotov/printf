@@ -135,3 +135,39 @@ int print_x(va_list args)
 	}
 	return (count);
 }
+/**
+ * print_X - func that print hex uppercase
+ * @args: arg
+ *
+ * Return: num of char printed
+ */
+int print_X(va_list args)
+{
+	unsigned int num;
+	int count, i, j, X[100];
+	char X_di[] = "0123456789ABCDEF";
+
+	count = 0;
+	num = va_arg(args, unsigned int);
+	if (num == 0)
+	{
+		putchar('0');
+		count++;
+	}
+	else
+	{
+		i = 0;
+		while (num != 0)
+		{
+			X[i] = X_di[num % 16];
+			num /= 16;
+			i++;
+		}
+		for (j = i - 1; j >= 0; j--)
+		{
+			putchar(X[j]);
+			count++;
+		}
+	}
+	return (count);
+}

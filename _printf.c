@@ -47,7 +47,8 @@ int check_format(const char **format, va_list args)
 	FH def[] = {
 		{'s', print_str}, {'c', print_char}, {'%', print_perc},
 		{'i', print_decimal}, {'d', print_decimal}, {'b', print_binary},
-		{'u', print_unsigned}, {'o', print_octal}, {'x', print_x}, {'\0', NULL},
+		{'u', print_unsigned}, {'o', print_octal}, {'x', print_x},
+		{'X', print_X},	{'\0', NULL},
 	};
 	while (def[i].spc)
 	{
