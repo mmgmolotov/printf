@@ -21,7 +21,7 @@ int print_rev(va_list args)
 			len++;
 		}
 	}
-	while(*str)
+	while (*str)
 	{
 		str++;
 		len++;
