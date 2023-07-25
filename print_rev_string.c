@@ -21,6 +21,8 @@ int print_rev(va_list args)
 			len++;
 		}
 	}
+	else
+	{
 	while (*str)
 	{
 		str++;
@@ -35,7 +37,8 @@ int print_rev(va_list args)
 		temp_str[i] = temp_str[len - i - 1];
 		temp_str[len - i - 1] = temp;
 	}
-	for (i = 0; temp_str[i] != '\0'; i++)
+	for (i = 0; temp_str[i] != 0 && i < len; i++)
 		putchar(temp_str[i]);
+	}
 	return (len);
 }
