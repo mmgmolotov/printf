@@ -13,16 +13,11 @@ int print_int(int n)
 	digit = 0;
 	div = 1;
 	num = n;
-	if (n == 0)
-	{
-		putchar('0');
-		return (1);
-	}	
+
 	if (num < 0)
 	{
 		putchar('-');
-		count++;
-		num = -n;
+		putchar(n);
 	}
 	else
 	{
