@@ -16,14 +16,14 @@ int print_binary(va_list args)
 		putchar('0');
 		return (1);
 	}
-	i = @;
+	i = 0;
 	while (num > 0)
 	{
 		binary[i++] = num % 2;
 		num /= 2;
 	}
 	for (j = i - 1; j >= 0; j--)
-	(
+	{
 		putchar(binary[j] + '0');
 	}
 	return (i);
