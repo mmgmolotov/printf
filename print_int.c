@@ -8,16 +8,12 @@
 int print_int(int n)
 {
 	unsigned int num;
-	int temp, div, digit;
-	int count;
-	int neg;
-	int i;
+	int count, neg, i, temp, div, digit;
 
 	count = 0;
 	div = 1;
 	digit = 0;
 	neg = 0;
-
 	if (n < 0)
 	{
 		neg = 1;
@@ -29,20 +25,17 @@ int print_int(int n)
 		num = n;
 	}
 	temp = num;
-	do
+	while (temp != 0)
 	{
 		temp /= 10;
 		digit++;
 	}
-	while (temp != 0);
 	for (i = 1; i < digit; i++)
 	{
 		div *= 10;
 	}
 	if (neg)
-	{
 		putchar('-');
-	}
 	while (div != 0)
 	{
 		digit = num / div;
