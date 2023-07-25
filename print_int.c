@@ -13,6 +13,12 @@ int print_int(int n)
 	digit = 0;
 	div = 1;
 	num = n;
+	if (n == INT_MIN)
+	{
+		putchar('-');
+		putchar('2');
+		return (print_int(147483648));
+	}
 	if (num < 0)
 	{
 		putchar('-');
