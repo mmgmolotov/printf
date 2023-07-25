@@ -13,6 +13,11 @@ int print_int(int n)
 	digit = 0;
 	div = 1;
 	num = n;
+	if (n == 0)
+	{
+		putchar('0');
+		return (1);
+	}	
 	if (num < 0)
 	{
 		putchar('-');
@@ -30,9 +35,7 @@ int print_int(int n)
 		}
 	}
 	for (i = 1; i < digit; i++)
-	{
 		div *= 10;
-	}
 	while (div != 0)
 	{
 		digit = num / div;
@@ -40,7 +43,6 @@ int print_int(int n)
 		num -= digit * div;
 		div /= 10;
 		count++;
-
 	}
 	return (count);
 }
