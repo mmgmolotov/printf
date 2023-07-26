@@ -97,5 +97,6 @@ int print_address(va_list args)
 		else
 			putchar(hex - 10 + 'a');
 	}
+	(void)(temp_address >>= 4);
 	return (num + 2);
 }
