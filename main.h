@@ -24,7 +24,7 @@ int print_rev(va_list args);
 int print_x(va_list args);
 int print_X(va_list args);
 int print_address(va_list args);
-
+int print_S(va_list args);
 /**
  * struct fh - for handling format
  * @spc: format specifier

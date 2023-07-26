@@ -44,3 +44,46 @@ int print_perc(va_list args)
 	putchar('%');
 	return (1);
 }
+/**
+ * print_S - uppercas
+ *
+ * @args: argument
+ *
+ * Return: length
+*/
+int print_S(va_list args)
+{
+	int len = 0;
+	char *str = va_arg(args, char *);
+	char hex;
+
+	if (!str)
+		str = "(null)";
+	while (*str)
+	{
+		if (*str < 32 || *str >= 127)
+		{
+			putchar('\\');
+			putchar('x');
+
+			hex = (*str >> 4) & 0xF;
+			if (hex < 10)
+				putchar(hex + '0');
+			else
+				putchar(hex - 10 + 'A');
+			hex = *str & 0xF;
+			if (hex < 10)
+				putchar(hex + '0');
+			else
+				putchar(hex - 10 + 'A');
+			len += 4;
+		}
+		else
+		{
+			putchar(*str);
+			len++;
+		}
+		str++;
+	}
+	return (len);
+}
