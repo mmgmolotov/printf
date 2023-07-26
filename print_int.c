@@ -72,15 +72,15 @@ int print_address(va_list args)
 	char hex, *str;
 	int i, num = 0;
 
-	intptr_t address = (intptr_t)va_arg(args, void *);
-	intptr_t temp_address = address;
+	uintptr_t address = (uintptr_t)va_arg(args, void *);
+	uintptr_t temp_address = address;
 
 	while (temp_address != 0)
 	{
 		temp_address >>= 4;
 		num++;
 	}
-	if (address == 0)
+	if (address == NULL)
 	{
 		str = "(nil)";
 		while (*str)
