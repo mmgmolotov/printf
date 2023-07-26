@@ -69,11 +69,12 @@ int print_decimal(va_list args)
 */
 int print_address(va_list args)
 {
-	char hex, *str;
-	uintptr_t i, num = 0;
+	char *str;
+	int i, j, num = 0;
 
+	char hex[16] = "0123456789abcdef";
 	uintptr_t address = (uintptr_t)va_arg(args, void *);
-	uintptr_t temp_address = address;
+	unsigned int temp_address = address;
 
 	if (!address)
 	{
@@ -91,13 +92,10 @@ int print_address(va_list args)
 			temp_address >>= 4;
 			num++;
 		}
-		for (i = num; i + 1; i--)
+		for (i = num; i >=  0; i--)
 		{
-			hex = (address >> ((num - 1) * 4)) & 0xF;
-			if (hex < 10)
-				putchar(hex + '0');
-			else
-				putchar(hex - 10 + 'a');
+			j = (address >> (i * 4)) & 0xF;
+			putchar(hex[j]);
 		}
 	}
 	return (num + 2);
