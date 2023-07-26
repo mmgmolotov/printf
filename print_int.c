@@ -70,7 +70,7 @@ int print_decimal(va_list args)
 int print_address(va_list args)
 {
 	char hex, *str;
-	int i, num = 0;
+	uintptr_t i, num = 0;
 
 	uintptr_t address = (uintptr_t)va_arg(args, void *);
 	uintptr_t temp_address = address;
@@ -80,7 +80,7 @@ int print_address(va_list args)
 		temp_address >>= 4;
 		num++;
 	}
-	if (address == NULL)
+	if (!address)
 	{
 		str = "(nil)";
 		while (*str)
@@ -91,7 +91,7 @@ int print_address(va_list args)
 	{
 		putchar('0');
 		putchar('x');
-		for (i = num; i >= 0; i--)
+		for (i = num; i + 1; i--)
 		{
 			hex = (address >> (i * 4)) & 0xF;
 			if (hex < 10)
