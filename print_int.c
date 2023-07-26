@@ -87,16 +87,18 @@ int print_address(va_list args)
 			putchar(*str++);
 		return (3);
 	}
-	putchar('0');
-	putchar('x');
-	for (i = num; i >= 0; i--)
+	else
 	{
-		hex = (address >> (i * 4)) & 0xF;
-		if (hex < 10)
-			putchar(hex + '0');
-		else
-			putchar(hex - 10 + 'a');
+		putchar('0');
+		putchar('x');
+		for (i = num; i >= 0; i--)
+		{
+			hex = (address >> (i * 4)) & 0xF;
+			if (hex < 10)
+				putchar(hex + '0');
+			else
+				putchar(hex - 10 + 'a');
+		}
 	}
-	(void)(temp_address >>= 4);
 	return (num + 2);
 }
