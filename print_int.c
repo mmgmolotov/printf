@@ -60,3 +60,42 @@ int print_decimal(va_list args)
 	value = va_arg(args, int);
 	return (print_int(value));
 }
+/**
+ * print_address - function prints address in hexadecimal
+ *
+ * @args: argument
+ *
+ * Return: address of num
+*/
+int print_address(va_list args)
+{
+	char hex, *str;
+	int i, num = 0;
+
+	intptr_t address = (intptr_t)va_arg(args, void *);
+	intptr_t temp_address = address;
+
+	while (temp_address != 0)
+	{
+		temp_address >>= 4;
+		num++;
+	}
+	if (address == 0)
+	{
+		str = "(nil)";
+		while (*str)
+			putchar(*str++);
+		return (3);
+	}
+	putchar('0');
+	putchar('x');
+	for (i = num; i >= 0; i--)
+	{
+		hex = (address >> (i * 4)) & 0xF;
+		if (hex < 10)
+			putchar(hex + '0');
+		else
+			putchar(hex - 10 + 'a');
+	}
+	return (num + 2);
+}

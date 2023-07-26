@@ -48,7 +48,8 @@ int check_format(const char **format, va_list args)
 		{'s', print_str}, {'c', print_char}, {'%', print_perc},
 		{'i', print_decimal}, {'d', print_decimal}, {'b', print_binary},
 		{'u', print_unsigned}, {'r', print_rev}, {'o', print_octal},
-		{'x', print_x},	{'X', print_X}, {'\0', NULL},
+		{'x', print_x},	{'X', print_X}, {'p', print_address},
+		{'\0', NULL},
 	};
 	while (def[i].spc)
 	{

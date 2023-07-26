@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdint.h>
 /*Only functions prototype here*/
 int check_format(const char **format, va_list args);
 int _printf(const char *format, ...);
@@ -22,7 +23,7 @@ int oct_checks(int m);
 int print_rev(va_list args);
 int print_x(va_list args);
 int print_X(va_list args);
-
+int print_address(va_list args);
 
 /**
  * struct fh - for handling format
