@@ -75,11 +75,6 @@ int print_address(va_list args)
 	uintptr_t address = (uintptr_t)va_arg(args, void *);
 	uintptr_t temp_address = address;
 
-	while (temp_address != 0)
-	{
-		temp_address >>= 4;
-		num++;
-	}
 	if (!address)
 	{
 		str = "(nil)";
@@ -91,9 +86,14 @@ int print_address(va_list args)
 	{
 		putchar('0');
 		putchar('x');
+		while (temp_address != 0)
+		{
+			temp_address >>= 4;
+			num++;
+		}
 		for (i = num; i + 1; i--)
 		{
-			hex = (address >> (i * 4)) & 0xF;
+			hex = (address >> ((num - 1) * 4)) & 0xF;
 			if (hex < 10)
 				putchar(hex + '0');
 			else
